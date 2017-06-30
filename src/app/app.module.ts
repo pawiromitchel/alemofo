@@ -1,4 +1,7 @@
-import { ItemsService } from './../services/items.service';
+import { OverAlemboPage } from './../pages/over-alembo/over-alembo';
+import { NieuwsPage } from './../pages/nieuws/nieuws';
+import { DetailPage } from './../pages/detail/detail';
+import { Functions } from './../services/functions.service';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -7,13 +10,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { MededelingenPage } from '../pages/mededelingen/mededelingen';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    LoginPage
+    MededelingenPage,
+    LoginPage,
+    DetailPage,
+    NieuwsPage,
+    OverAlemboPage
   ],
   imports: [
     BrowserModule,
@@ -22,14 +28,17 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    LoginPage
+    MededelingenPage,
+    LoginPage,
+    DetailPage,
+    NieuwsPage,
+    OverAlemboPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ItemsService
+    Functions
   ]
 })
 export class AppModule {}

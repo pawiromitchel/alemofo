@@ -5,8 +5,38 @@
         </ion-toolbar>
     </ion-header>
     <ion-content>
+        <img class="center" src="assets/img/login-header.jpg" width="70%">
         <ion-list>
-            <ion-item menuClose detail-none>Close Menu</ion-item>
+            <button menuClose ion-item (click)="openMededelingen()">
+                <ion-icon name="information-circle" item-start></ion-icon>
+                Mededelingen
+            </button>
+            <button menuClose ion-item (click)="openNieuws()">
+                <ion-icon name="paper" item-start></ion-icon>
+                Nieuws
+            </button>
+            <a href="https://hr.i-frontier.sr/alembo/app/">
+                <button menuClose ion-item>
+                    <ion-icon name="cash" item-start></ion-icon>
+                    Loonstrook Bekijken
+                </button>
+            </a>
+            <a href="https://whentowork.com/logins.htm">
+                <button menuClose ion-item>
+                    <ion-icon name="briefcase" item-start></ion-icon>
+                    W2W Rooster
+                </button>
+            </a>
+            <a href="https://alemofo.werkenbijalembo.sr/wiki/melden-van-ict-storingen/">
+                <button menuClose ion-item>
+                    <ion-icon name="document" item-start></ion-icon>
+                    ICT Storing
+                </button>
+            </a>
+            <button menuClose ion-item (click)="openOverAlembo()">
+                <ion-icon name="list-box" item-start></ion-icon>
+                Over Alembo
+            </button>
         </ion-list>
     </ion-content>
 </ion-menu>

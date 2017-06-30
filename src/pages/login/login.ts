@@ -1,4 +1,4 @@
-import { HomePage } from './../home/home';
+import { MededelingenPage } from './../mededelingen/mededelingen';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Request } from 'request';
@@ -19,6 +19,6 @@ export class LoginPage {
       duration: 3000
     });
     loader.present();
-    loader.onDidDismiss(() => {this.navCtrl.setRoot(HomePage)});
+    loader.onDidDismiss(() => {this.navCtrl.setRoot(MededelingenPage)});
   }
 }

@@ -1,0 +1,17 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>
+            <div class="toolbar-title toolbar-title-md" [innerHtml]="title"></div>
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <span [innerHtml]="body"></span>
+    <ion-card *ngFor="let image of images">
+        <img src="{{ image }}" />
+    </ion-card>
+</ion-content>
