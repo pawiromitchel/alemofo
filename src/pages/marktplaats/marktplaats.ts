@@ -18,7 +18,7 @@ import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 export class MarktplaatsPage {
 items: {title: string, body: string, originalBody: string, images: any, featuredImage: any}[] = [];
 
-  constructor(public navCtrl: NavController, public Functions: Functions, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public functions: Functions, public loadingCtrl: LoadingController) {
 
   }
 
@@ -39,12 +39,12 @@ items: {title: string, body: string, originalBody: string, images: any, featured
       var body = JSON.parse(body);
       body.forEach((item) => {
         // list
-        var bodyInput = this.Functions.stripAndDecode(item.content.rendered, '').substring(0, 80) + " ...";
-        var featuredImage = this.Functions.getFeaturedImage(item.content.rendered, 'assets/img/card-header.jpg');
+        var bodyInput = this.functions.stripAndDecode(item.content.rendered, '').substring(0, 80) + " ...";
+        var featuredImage = this.functions.getFeaturedImage(item.content.rendered, 'assets/img/card-header.jpg');
 
         // for the details page
-        var originalBody = this.Functions.stripAndDecode(item.content.rendered, '<p><b><span><br><a><li><ul>');
-        var images = this.Functions.getImagesFromString(item.content.rendered);
+        var originalBody = this.functions.stripAndDecode(item.content.rendered, '<p><b><span><br><a><li><ul>');
+        var images = this.functions.getImagesFromString(item.content.rendered);
         
         // push the items to the array
         this.items.push({title: item.title.rendered, body: bodyInput, originalBody: originalBody, images: images, featuredImage: featuredImage});

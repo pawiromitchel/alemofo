@@ -9,6 +9,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 import { MyApp } from './app.component';
 import { MededelingenPage } from '../pages/mededelingen/mededelingen';
@@ -41,7 +42,8 @@ import { MededelingenPage } from '../pages/mededelingen/mededelingen';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Functions
+    Functions,
+    PhotoViewer
   ]
 })
 export class AppModule {}

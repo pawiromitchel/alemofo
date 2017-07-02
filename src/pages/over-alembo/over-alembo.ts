@@ -14,7 +14,7 @@ export class OverAlemboPage {
   content: any;
   images: any;
 
-  constructor(public navCtrl: NavController, public Functions: Functions, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public functions: Functions, public loadingCtrl: LoadingController) {
 
   }
 
@@ -33,8 +33,8 @@ getData(){
       var body = JSON.parse(body);
       body.forEach((item) => {
         // for the details page
-        this.content = this.Functions.stripAndDecode(item.content.rendered, '<p><b><span><br><a><li><ul>');
-        this.images = this.Functions.getImagesFromString(item.content.rendered);
+        this.content = this.functions.stripAndDecode(item.content.rendered, '<p><b><span><br><a><li><ul>');
+        this.images = this.functions.getImagesFromString(item.content.rendered);
       });
     });
 

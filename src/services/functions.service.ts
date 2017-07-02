@@ -34,4 +34,10 @@ export class Functions{
 
         return urls;
     }
+
+    getWPOriginalResolution(input: string){
+        var regex = /^(.+)-\d+?x\d+?(\.\w+)$/;
+        var getSrc = regex.exec(input);
+        return getSrc[1];
+    }
 }

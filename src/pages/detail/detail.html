@@ -12,6 +12,6 @@
 <ion-content padding>
     <span [innerHtml]="body"></span>
     <ion-card *ngFor="let image of images">
-        <img src="{{ image }}" />
+        <img (click)="openImage(image)" src="{{ image }}" />
     </ion-card>
 </ion-content>
