@@ -74,8 +74,7 @@ items: {title: string, body: string, originalBody: string, images: any, featured
     this.navCtrl.push(DetailPage, item);
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     this.getData();
   }
-
 }

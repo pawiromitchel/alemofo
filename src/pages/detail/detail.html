@@ -2,7 +2,7 @@
 
     <ion-navbar>
         <ion-title>
-            <div class="toolbar-title toolbar-title-md" [innerHtml]="title"></div>
+            Meer info
         </ion-title>
     </ion-navbar>
 
@@ -10,6 +10,7 @@
 
 
 <ion-content padding>
+    <h1 [innerHtml]="title"></h1>
     <span [innerHtml]="body"></span>
     <ion-card *ngFor="let image of images">
         <img (click)="openImage(image)" src="{{ image }}" />

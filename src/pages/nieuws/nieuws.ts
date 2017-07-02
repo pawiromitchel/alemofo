@@ -67,7 +67,7 @@ export class NieuwsPage {
     this.navCtrl.push(DetailPage, item);
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     this.getData();
   }
 }

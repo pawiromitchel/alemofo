@@ -68,7 +68,7 @@ export class MededelingenPage {
     this.navCtrl.push(DetailPage, item);
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     this.getData();
   }
 }

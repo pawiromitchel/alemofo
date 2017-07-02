@@ -55,8 +55,8 @@ export class LoginPage {
   login(){
     this.doLogin(this.username, this.password, "Geduld aub...");
   }
-
-  ionViewWillEnter() {
+  
+  ionViewDidLoad() {
     if(this.username !== null && this.password !== null){
       this.doLogin(localStorage.getItem('username'), localStorage.getItem('password'), "Welkom terug ...");
     }

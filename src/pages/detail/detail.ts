@@ -16,13 +16,13 @@ export class DetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public functions: Functions, private photoViewer: PhotoViewer) {
   }
 
-  ionViewWillEnter() {
+  openImage(image){
+    this.photoViewer.show(this.functions.getWPOriginalResolution(image));
+  }
+
+  ionViewDidLoad() {
     this.title = this.navParams.get('title');
     this.body = this.navParams.get('originalBody');
     this.images = this.navParams.get('images');
-  }
-
-  openImage(image){
-    this.photoViewer.show(this.functions.getWPOriginalResolution(image));
   }
 }

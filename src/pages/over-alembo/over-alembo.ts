@@ -55,7 +55,7 @@ getData(){
     }, 1000);
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     this.getData();
   }
 
