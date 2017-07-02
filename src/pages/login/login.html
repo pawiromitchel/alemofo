@@ -8,18 +8,21 @@
 
 <ion-content padding>
 
+    <img class="center" src="assets/icon.png" width="20%" alt="">
+    <h1 ion-text text-center color="primary">Alemofo</h1>
+
     <ion-item>
         <ion-label floating>Username</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input [(ngModel)]="username" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>Password</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
     </ion-item>
 
     <div padding>
-        <button block ion-button (click)="Login()">Sign In</button>
+        <button block ion-button (click)="login()">Sign In</button>
     </div>
 
 </ion-content>

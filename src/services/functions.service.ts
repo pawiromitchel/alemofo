@@ -13,10 +13,14 @@ export class Functions{
         return stripInput;
     }
 
-    public getFeaturedImage(input: any){
+    public getFeaturedImage(input: any, defaultImage: any){
         var regex = /<img.+?src=[\"'](.+?)[\"'].*?>/;
         var getSrc = regex.exec(input);
-        return getSrc;
+        if (getSrc !== null){
+            return getSrc[1];
+        } else {
+            return defaultImage;
+        }
     }
 
     getImagesFromString(input: any){

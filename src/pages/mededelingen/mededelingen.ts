@@ -10,13 +10,15 @@ import { NavController, LoadingController } from 'ionic-angular';
 })
 export class MededelingenPage {
 
-  items: {title: string, body: string, originalBody: string, images: any}[] = [];
+  items: {title: string, body: string, originalBody: string, images: any, featuredImage: any}[] = [];
 
   constructor(public navCtrl: NavController, public Functions: Functions, public loadingCtrl: LoadingController) {
 
   }
 
   getData(){
+    // remove all item for new ones
+    this.items = [];
 
     // prepare the loader
     let loading = this.loadingCtrl.create({
@@ -32,13 +34,14 @@ export class MededelingenPage {
       body.forEach((item) => {
         // list
         var bodyInput = this.Functions.stripAndDecode(item.content.rendered, '').substring(0, 80) + " ...";
+        var featuredImage = this.Functions.getFeaturedImage(item.content.rendered, 'assets/img/card-header.jpg');
 
         // for the details page
         var originalBody = this.Functions.stripAndDecode(item.content.rendered, '<p><b><span><br><a><li><ul>');
         var images = this.Functions.getImagesFromString(item.content.rendered);
         
         // push the items to the array
-        this.items.push({title: item.title.rendered, body: bodyInput, originalBody: originalBody, images: images});
+        this.items.push({title: item.title.rendered, body: bodyInput, originalBody: originalBody, images: images, featuredImage: featuredImage});
       });
     });
 
@@ -47,16 +50,15 @@ export class MededelingenPage {
       loading.dismiss();
       // show the data
       this.items = this.items;
-    }, 500);
+    }, 1000);
   }
 
+  // pull to refresh
   doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-
     setTimeout(() => {
-      console.log('Async operation has ended');
+      this.getData();
       refresher.complete();
-    }, 2000);
+    }, 1000);
   }
 
   openModal(item){

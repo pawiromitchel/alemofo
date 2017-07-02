@@ -44,7 +44,15 @@ getData(){
       // show the data
       this.content = this.content;
       this.images = this.images;
-    }, 500);
+    }, 1000);
+  }
+
+  // pull to refresh
+  doRefresh(refresher) {
+    setTimeout(() => {
+      this.getData();
+      refresher.complete();
+    }, 1000);
   }
 
   ionViewWillEnter() {

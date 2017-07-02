@@ -4,20 +4,27 @@ import Request from 'request';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 
+/**
+ * Generated class for the MarktplaatsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
 @IonicPage()
 @Component({
-  selector: 'page-nieuws',
-  templateUrl: 'nieuws.html',
+  selector: 'page-marktplaats',
+  templateUrl: 'marktplaats.html',
 })
-export class NieuwsPage {
-
-  items: {title: string, body: string, originalBody: string, images: any, featuredImage: any}[] = [];
+export class MarktplaatsPage {
+items: {title: string, body: string, originalBody: string, images: any, featuredImage: any}[] = [];
 
   constructor(public navCtrl: NavController, public Functions: Functions, public loadingCtrl: LoadingController) {
 
   }
 
   getData(){
+    // remove all item for new ones
+    this.items = [];
 
     // prepare the loader
     let loading = this.loadingCtrl.create({
@@ -28,7 +35,7 @@ export class NieuwsPage {
     loading.present();
 
     // get data from WP API
-    Request('https://alemofo.werkenbijalembo.sr/wp-json/wp/v2/posts?categories=18&categories_exclude=65', (error, response, body) => {
+    Request('https://alemofo.werkenbijalembo.sr/wp-json/wp/v2/posts?categories=71', (error, response, body) => {
       var body = JSON.parse(body);
       body.forEach((item) => {
         // list
@@ -70,4 +77,5 @@ export class NieuwsPage {
   ionViewWillEnter() {
     this.getData();
   }
+
 }

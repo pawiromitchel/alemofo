@@ -10,12 +10,18 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
     <ion-card *ngFor="let item of items" (click)="openModal(item)">
-        <ion-card-header>
-            <span [innerHtml]="item.title"></span>
-        </ion-card-header>
+        <img class="card-img" src="{{ item.featuredImage }}" />
         <ion-card-content>
-            <div [innerHtml]="item.body"></div>
+            <ion-card-title>
+                <span [innerHtml]="item.title"></span>
+            </ion-card-title>
+            <p [innerHtml]="item.body"></p>
         </ion-card-content>
     </ion-card>
 </ion-content>

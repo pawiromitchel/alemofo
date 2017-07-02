@@ -1,3 +1,4 @@
+import { MarktplaatsPage } from './../pages/marktplaats/marktplaats';
 import { OverAlemboPage } from './../pages/over-alembo/over-alembo';
 import { NieuwsPage } from './../pages/nieuws/nieuws';
 import { DetailPage } from './../pages/detail/detail';
@@ -19,7 +20,8 @@ import { MededelingenPage } from '../pages/mededelingen/mededelingen';
     LoginPage,
     DetailPage,
     NieuwsPage,
-    OverAlemboPage
+    OverAlemboPage,
+    MarktplaatsPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { MededelingenPage } from '../pages/mededelingen/mededelingen';
     LoginPage,
     DetailPage,
     NieuwsPage,
-    OverAlemboPage
+    OverAlemboPage,
+    MarktplaatsPage
   ],
   providers: [
     StatusBar,

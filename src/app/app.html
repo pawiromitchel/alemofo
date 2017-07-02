@@ -1,40 +1,45 @@
-<ion-menu [content]="menu" [persistent]="true">
+<ion-menu id="menu" [content]="menu" [persistent]="true">
     <ion-header>
         <ion-toolbar>
             <ion-title>Menu</ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        <img class="center" src="assets/img/login-header.jpg" width="70%">
-        <ion-list>
+        <img class="img-padding center" src="assets/img/login-header.jpg" width="70%">
+        <hr>
+        <ion-list no-lines>
             <button menuClose ion-item (click)="openMededelingen()">
-                <ion-icon name="information-circle" item-start></ion-icon>
+                <ion-icon name="ios-alert-outline" item-start></ion-icon>   
                 Mededelingen
             </button>
             <button menuClose ion-item (click)="openNieuws()">
-                <ion-icon name="paper" item-start></ion-icon>
+                <ion-icon name="ios-paper-outline" item-start></ion-icon>
                 Nieuws
+            </button>
+            <button menuClose ion-item (click)="openMarktplaats()">
+                <ion-icon name="ios-pricetags-outline" item-start></ion-icon>
+                Marktplaats
             </button>
             <a href="https://hr.i-frontier.sr/alembo/app/">
                 <button menuClose ion-item>
-                    <ion-icon name="cash" item-start></ion-icon>
+                    <ion-icon name="ios-cash-outline" item-start></ion-icon>
                     Loonstrook Bekijken
                 </button>
             </a>
             <a href="https://whentowork.com/logins.htm">
                 <button menuClose ion-item>
-                    <ion-icon name="briefcase" item-start></ion-icon>
+                    <ion-icon name="ios-briefcase-outline" item-start></ion-icon>
                     W2W Rooster
                 </button>
             </a>
             <a href="https://alemofo.werkenbijalembo.sr/wiki/melden-van-ict-storingen/">
                 <button menuClose ion-item>
-                    <ion-icon name="document" item-start></ion-icon>
+                    <ion-icon name="ios-document-outline" item-start></ion-icon>
                     ICT Storing
                 </button>
             </a>
             <button menuClose ion-item (click)="openOverAlembo()">
-                <ion-icon name="list-box" item-start></ion-icon>
+                <ion-icon name="ios-list-box-outline" item-start></ion-icon>
                 Over Alembo
             </button>
         </ion-list>

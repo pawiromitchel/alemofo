@@ -1,3 +1,4 @@
+import { MarktplaatsPage } from './../pages/marktplaats/marktplaats';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -30,6 +31,10 @@ export class MyApp {
 
   openNieuws(){
     this.NavController.setRoot(NieuwsPage);
+  }
+
+  openMarktplaats(){
+    this.NavController.setRoot(MarktplaatsPage);
   }
 
   openOverAlembo(){
