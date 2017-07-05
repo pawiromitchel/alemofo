@@ -10,16 +10,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 import { MyApp } from './app.component';
 import { MededelingenPage } from '../pages/mededelingen/mededelingen';
-
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': '640e7d6e'
-  }
-};
 
 @NgModule({
   declarations: [
@@ -33,8 +26,7 @@ const cloudSettings: CloudSettings = {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings)
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
