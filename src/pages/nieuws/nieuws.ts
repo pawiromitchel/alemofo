@@ -13,19 +13,19 @@ export class NieuwsPage {
 
   items: {title: string, body: string, originalBody: string, images: any, featuredImage: any}[] = [];
 
+  // prepare the loader
+  loading = this.loadingCtrl.create({
+    content: 'Geduld aub...'
+  });
+
   constructor(public navCtrl: NavController, public functions: Functions, public loadingCtrl: LoadingController) {
 
   }
 
   getData(){
 
-    // prepare the loader
-    let loading = this.loadingCtrl.create({
-      content: 'Geduld aub...'
-    });
-
     // show loading
-    loading.present();
+    this.loading.present();
 
     // get data from WP API
     Request('https://alemofo.werkenbijalembo.sr/wp-json/wp/v2/posts?categories=18&categories_exclude=65', (error, response, body) => {
@@ -42,14 +42,16 @@ export class NieuwsPage {
         // push the items to the array
         this.items.push({title: item.title.rendered, body: bodyInput, originalBody: originalBody, images: images, featuredImage: featuredImage});
       });
-    });
 
-    setTimeout(() => {
-      // remove loading
-      loading.dismiss();
-      // show the data
-      this.items = this.items;
-    }, 1000);
+      setTimeout(() => {
+        // remove loading
+        this.loading.dismiss();
+        // show the data
+        this.items = this.items;
+        // store the data
+        localStorage.setItem("nieuws", JSON.stringify(this.items));
+      }, 1000);
+    });
   }
 
   // pull to refresh
@@ -67,7 +69,11 @@ export class NieuwsPage {
     this.navCtrl.push(DetailPage, item);
   }
 
-  ionViewDidLoad() {
-    this.getData();
+  ionViewDidEnter(){
+    if(localStorage.getItem("nieuws") === null && localStorage.getItem("nieuws") != ""){
+      this.getData();
+    } else {
+      this.items = JSON.parse(localStorage.getItem("nieuws"));
+    }
   }
 }

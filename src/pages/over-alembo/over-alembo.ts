@@ -10,9 +10,12 @@ import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 })
 export class OverAlemboPage {
 
-  title: any;
   content: any;
-  images: any;
+
+  // prepare the loader
+  loading = this.loadingCtrl.create({
+    content: 'Geduld aub...'
+  });
 
   constructor(public navCtrl: NavController, public functions: Functions, public loadingCtrl: LoadingController) {
 
@@ -20,13 +23,8 @@ export class OverAlemboPage {
 
 getData(){
 
-    // prepare the loader
-    let loading = this.loadingCtrl.create({
-      content: 'Geduld aub...'
-    });
-
     // show loading
-    loading.present();
+    this.loading.present();
 
     // get data from WP API
     Request('https://alemofo.werkenbijalembo.sr/wp-json/wp/v2/pages?slug=missievisie', (error, response, body) => {
@@ -34,17 +32,17 @@ getData(){
       body.forEach((item) => {
         // for the details page
         this.content = this.functions.stripAndDecode(item.content.rendered, '<p><b><span><br><a><li><ul>');
-        this.images = this.functions.getImagesFromString(item.content.rendered);
       });
-    });
 
-    setTimeout(() => {
-      // remove loading
-      loading.dismiss();
-      // show the data
-      this.content = this.content;
-      this.images = this.images;
-    }, 1000);
+      setTimeout(() => {
+        // remove loading
+        this.loading.dismiss();
+        // show the data
+        this.content = this.content;
+        // store data
+        localStorage.setItem("over-alembo", this.content);
+      }, 1000);
+    });
   }
 
   // pull to refresh
@@ -55,8 +53,11 @@ getData(){
     }, 1000);
   }
 
-  ionViewDidLoad() {
-    this.getData();
+  ionViewDidEnter(){
+    if(localStorage.getItem("over-alembo") === null && localStorage.getItem("over-alembo") != ""){
+      this.getData();
+    } else {
+      this.content = localStorage.getItem("over-alembo");
+    }
   }
-
 }

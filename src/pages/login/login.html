@@ -1,26 +1,18 @@
-<ion-header>
-
-    <ion-navbar>
-        <ion-title>Login</ion-title>
-    </ion-navbar>
-
-</ion-header>
-
 <ion-content padding>
 
     <img class="img-padding center" src="assets/img/login-header.jpg" width="70%" alt="">
 
-    <ion-item>
-        <ion-icon name="ios-person-outline" item-start></ion-icon>
-        <ion-label floating>Username</ion-label>
-        <ion-input [(ngModel)]="username" type="text"></ion-input>
-    </ion-item>
+    <ion-list inset>
+        <ion-item>
+            <ion-icon name="ios-person-outline" item-start></ion-icon>
+            <ion-input [(ngModel)]="username" type="text" placeholder="Username"></ion-input>
+        </ion-item>
 
-    <ion-item>
-        <ion-icon name="ios-key-outline" item-start></ion-icon>
-        <ion-label floating>Password</ion-label>
-        <ion-input [(ngModel)]="password" type="password"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-icon name="ios-key-outline" item-start></ion-icon>
+            <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
+        </ion-item>
+    </ion-list>
 
     <div padding>
         <button block ion-button (click)="login()">Sign In</button>

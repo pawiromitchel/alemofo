@@ -20,7 +20,7 @@ export class DetailPage {
     this.photoViewer.show(this.functions.getWPOriginalResolution(image));
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.title = this.navParams.get('title');
     this.body = this.navParams.get('originalBody');
     this.images = this.navParams.get('images');

@@ -41,4 +41,3 @@ export class MyApp {
     this.NavController.setRoot(OverAlemboPage);
   }
 }
-
